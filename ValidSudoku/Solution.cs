@@ -57,16 +57,18 @@ namespace ValidSudoku
             }
             // Check each box
             k = 3;
+            //Console.WriteLine("Vo vong box");
             while (k <= size)
             {
-                int[] iBox = new int [10];
-                for (int i = k-3; i < k; i++)
-                {
-                    for (int j = 0; j < size; j++)
+                int[] iBox = new int[10];
+                for (int i =0; i < size; i++)
+                {   if (i % 3 == 0)
+                        iBox = new int[10];
+                    for (int j = k-3; j < k; j++)
                     {
-                        Console.WriteLine($"Current position board is: {j},{i}| Value {board[j][i]}");
+                        //Console.WriteLine($"Current position board is: {i},{j}| Value {board[i][j]}");
 
-                        int tempBox = (int)char.GetNumericValue(board[j][i]);
+                        int tempBox = (int)char.GetNumericValue(board[i][j]);
                         // Add number
                         if (tempBox > -1)
                         {
@@ -78,7 +80,7 @@ namespace ValidSudoku
          
                     }
                 }
-                Console.WriteLine($"iBox : is {string.Join(",", iBox)}");
+                //Console.WriteLine($"iBox : is {string.Join(",", iBox)}");
                 k += 3;
             }
           
